@@ -1,0 +1,62 @@
+Program realizat de Mindru Alexandru-Ionut
+Grupa 311CB
+
+Obs.: Nu are leak-uri de memorie si toti pointerii sunt verificati daca sunt
+ initializati corect.
+
+In cadrul programului se gasesc mai multe structuri:
+-In hash.h: Info, Hash
+-In lista.h: TCelulaG (*TLG)
+-In materie.h: TMaterie
+-In student.h: TStudent
+
+Structurile contin urmatoarele variabile (nu voi explica ce se afla si in 
+TCelulaG, TMaterie, TStudent):
+In hash.h: 	- Hash = reprezinta hash tabel-ul in care sunt stocati mai multi 
+parametrii printre care functii de afisare a tabelei, comparare a doua cheii,
+ citire si afisare a cheii, de returnare a sizeof de cheie si 2 size_t ce 
+ reprezinta nr actual de intrari in bucker, resp nr maxim alocat de intrari.
+			- Info = reprezinta structura in care se stocheaza informatia 
+introdusa in lista, contine o functie de afisare a valorii, si de eliberare a 
+valorii, precum si cheia asociata cu valoarea
+
+Functiile de initializare, citire, printare, distrugere etc asociate fiecarei 
+structuri sunt puse in fisiere separate pentru o intelegere mai usoara.
+
+Functiile folosite in cadrul temei se pot gasi in
+header-urile respective fiecarei surse pentru o citere mai usoara.
+
+Pentru a observa ce primeste fiecare functie verifica
+hash.h lista.h materie.h student.h
+
+In hash.c
+Gasim functiile asociate fiecarui tip de cheie string sau int:
+printKey, cmpKey, sizeKey, readKey
+
+Precum si functiile asociate tabelei si operatiilor din tema:
+hash_f - genereaza code-ul pentru intrarea din bucket
+iniTH - initializeaza tabela cu functiile corespunzatoare in functie de cheie
+AlocBucket - aloca memorie bucket-ului cu dimensiunea de max_len
+DistTH - elibereaza din memorie TabelaH apeland functiile respective de 
+eliberare ale cheii si valorii asociate ei
+insertVal - insereaza valoarea respectiva in tabela si verifica daca cheia 
+exista deja pentru a rescrie valoarea din ea
+printTH - afiseaza tabela
+resizeTH - redimensioneaza bucket-ul cand load factorul a fost atins
+findKey - cauta o cheie in bucket
+distKey - elibereaza memoria alocata cheii
+
+In lista.c
+Gasim functiile asociate listei:
+InsertTLG - insereaza o celula intr-o lista aflata la un anumit indice din 
+bucket
+DistLS - elibereaza memoria unei liste
+DistCelula - elibereaza memoria unei celule
+
+In materie.c si student.c
+Gasim functiile asociate structurii de tip TMaterie si TStudent:
+readMat/readStud - citeste si aloca memorie (unde e nevoie) campurilor din 
+structura
+printMat/printStud - afiseaza valorile din campurile respective
+freeMat/freeStud - elibereaza memoria campurilor alocate si elibereaza 
+structura in sine

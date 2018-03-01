@@ -1,0 +1,15 @@
+==68729== Memcheck, a memory error detector
+==68729== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==68729== Using Valgrind-3.12.0.SVN and LibVEX; rerun with -h for copyright info
+==68729== Command: ./hash_table
+==68729== Parent PID: 68672
+==68729== 
+==68729== 
+==68729== HEAP SUMMARY:
+==68729==     in use at exit: 0 bytes in 0 blocks
+==68729==   total heap usage: 1,106 allocs, 1,106 frees, 30,710 bytes allocated
+==68729== 
+==68729== All heap blocks were freed -- no leaks are possible
+==68729== 
+==68729== For counts of detected and suppressed errors, rerun with: -v
+==68729== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,0 +1,16 @@
+inithash s 10
+14
+find dbefbfbcfd
+print
+find dbefbfbcfd
+delete dbefbfbcfd
+insert aefaaccaff stud Santana 7.9 316cb 24 
+insert aefaaccafd stud Bryce 8.7 312ca 24
+insert aefaaccafe stud Bryce 8.7 312ca 24
+insert aefaaccaff stud Bryce 8.7 312ca 24
+insert aefaaccafg stud Bryce 8.7 312ca 24
+insert aefaaccafh stud Bryce 8.7 312ca 24
+insert aefaaccafi stud Bryce 8.7 312ca 24
+print
+delete aefaaccafi
+print

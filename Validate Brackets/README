@@ -1,0 +1,129 @@
+Program realizat de Mindru Alexandru-Ionut
+Grupa 311CB
+
+Obs.: Pentru cat mai putine alocari si eliberari de memorie programul are mai 
+multe functii ce primesc ca parametrii adresele de memorie unde se afla 
+informatia respectiva
+
+In cadrul programului se gasesc mai multe structuri:
+-In common.h: Info, Bracket
+-In lista.h: TCelulaG (*TLG)
+-In stack.h: Stack, TStack
+-In queue.h: Queue, TQueue
+
+Structurile contin urmatoarele variabile
+Info - functia de eliberare a valorii si un pointer de tip void catre valoare
+Bracket - contine tipul de paranteza si id-ul asociat acesteia
+Stack - contine dimensiunea din campul info si o lista de tipul TLG
+TStack - contine o functie de afisare asociata informatiei, bucket-ul de stive 
+si nr max de stive
+Queue - contine dimensiunea din campul info si o lista de tipul TLG
+TQueue - contine o functie de afisare asociata informatiei, bucket-ul de cozi 
+si nr max de cozi
+
+Functiile de initializare, citire, printare, distrugere etc asociate fiecarei 
+structuri sunt puse in fisiere separate pentru o intelegere mai usoara.
+
+Functiile folosite in cadrul temei se pot gasi in
+header-urile respective fiecarei surse pentru o citere mai usoara.
+
+Pentru a observa ce primeste fiecare functie verifica
+common.h lista.h stack.h queue.h
+
+In common.c gasim urmatoarele functii:
+AlocBucket - initializeaza bucket-ul de stive, resp cozi
+ReadVal - o functie folosita pentru citirea id-ul si tipului de paranteza si 
+apelarea operatiei asociata push sau intrq
+AlocInfo - functie ce aloca memorie informatiei
+PrintVal - functie pentru afisarea parantezelor
+cmp_brackets_id - functie pentru comparare de id-uri
+cmp_brackets_type - functie pentru comparare de tipuri de paranteze
+
+In lista.c gasim urmatoarele functii:
+AlocCelula - aloca memorie unei celule de tip TLG
+DistLS - distruge o lista
+DistCelula - distruge o celula
+
+In stack.c/queue.c gasim urmatoarele functii:
+initS/initQ - initializeaza structura cu bucket-ul de stive resp cozi
+
+AlocBucketS/AlocBucketQ - aloca dimensiune bucket-ului de stive resp cozi
+
+Rastoarna - folosita pentru stive, rastoarna stiva
+
+push/intrq - functie ce insereaza intr-o stiva si face legaturile in lista
+
+pop/extrq - intoarce adresa unde se afla informatia si o elimina din lista
+!!! La unele functii precum rastoarna, corrects, prints, printq ignor eroarea
+intoarsa de functie din cauza cum e construita functia respectiva!!!
+
+top/front - intoarce adresa unde se afla informatia
+
+prints - luam stiva respectiva si o rasturnam si in timp ce afisam punem inapoi
+in stiva principala din bucket
+
+printq - afisam coada
+
+sorts - e o sortare recursiva, in 2 etape:
+Algoritm luat de pe:
+http://www.geeksforgeeks.org/sort-a-stack-using-recursion/
+Am luat algoritmul si l-am adaptat pentru functiile pe care le am.
+Prima etapa presupune scoaterea adreselor de memorie din stiva si in a doua 
+etapa apelarea lui sorts_recur cu adresele scoase, folosind si o functie de 
+comparare putem stabili cum se distribuie inapoi in stiva adresele valorilor.
+
+sortq - se toarna coada intr-o stiva si se foloseste sorts pe stiva respectiva
+
+corrects - am combinat 2 algoritme, unul se foloseste pentru a determina daca
+parantezele se inchid corect si al doilea pentru a afla lungimea sirului maxim
+folosindu-ne de pozitiile din stiva
+
+correctq - se toarna coada intr-o stiva si se apeleaza corrects
+
+DistS/DistQ - distruge structura de TStiva resp TQueuegcc -c -o common.o 
+common.c -Wall -Wextra -Werror -g
+
+
+							CHECKER LOCAL
+
+
+gcc -c -o lista.o lista.c -Wall -Wextra -Werror -g
+gcc -c -o stack.o stack.c -Wall -Wextra -Werror -g
+gcc -c -o queue.o queue.c -Wall -Wextra -Werror -g
+gcc -c -o tema2.o tema2.c -Wall -Wextra -Werror -g
+gcc common.o lista.o stack.o queue.o tema2.o -Wall -Wextra -Werror -g -o tema2
+
+                     = Tema 2 SD Switch-uri de Retea =
+
+[test0.out]...........................................passed  [08/85]
+[VALGRIND: test0.out].................................passed  [02/85]
+
+[test1.out]...........................................passed  [08/85]
+[VALGRIND: test1.out].................................passed  [02/85]
+
+[test2.out]...........................................passed  [08/85]
+[VALGRIND: test2.out].................................passed  [02/85]
+
+[test3.out]...........................................passed  [08/85]
+[VALGRIND: test3.out].................................passed  [02/85]
+
+[test4.out]...........................................passed  [08/85]
+[VALGRIND: test4.out].................................passed  [02/85]
+
+[test5.out]...........................................passed  [08/85]
+[VALGRIND: test5.out].................................passed  [02/85]
+
+[test6.out]...........................................passed  [08/85]
+[VALGRIND: test6.out].................................passed  [02/85]
+
+[test7.out]...........................................passed  [08/85]
+[VALGRIND: test7.out].................................passed  [02/85]
+
+[test8.out]...........................................passed  [08/85]
+[VALGRIND: test8.out].................................passed  [02/85]
+
+[test9.out]...........................................passed  [13/85]
+[VALGRIND: test9.out].................................passed  [02/85]
+
+
+                                           Total: [105/85]

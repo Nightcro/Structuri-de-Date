@@ -1,0 +1,34 @@
+Program realizat de Mindru Alexandru-Ionut
+Grupa 311CB
+
+In cadrul programului se gaseste o singura structura:
+-In trie.h: Trie
+
+Structura contine urmatoarele variabile:
+nrwords - in fiecare nod din trie aceasta variabila va memora cate cuvinte
+exista pe calea in care se afla nodul
+nrsons - reprezinta numarul de fii al vectorului sons
+letter - char ce cotine litera din nodul respectiv
+word - variabile ce memoreaza daca se opreste un cuvant in nodul respectiv
+
+Functiile folosite in cadrul temei se pot gasi in header-ul trie.h
+
+Pentru a observa ce primeste fiecare functie verifica trie.h
+
+In trie.c gasim urmatoarele functii:
+InitTrie - initializeaza un pointer de tip Trie si variabilele respective
+add - se adauga recursiv in trie un cuvant
+remove_word - mai intai apeleaza functia find pentru a determina daca 
+exista cuvantul in trie apoi apeleaza functia remove_word_aux care e recursiva
+find - determina daca cuvantul exista sau nu in trie
+find_pref - functie folosite pentru a gasi prefix-ul in trie (partial sau in 
+totalitate)
+find_longest_prefix - functie ce apeleaza find_pref pentru a gasi prefixul din
+trie
+pref_aux - functie asemanatoare cu find_longest_prefix dar cu o conditie
+diferita
+find_all_with_prefix - functie ce se foloseste de pref_aux pentru a determina
+prefixul si dupa aceea apeleaza find_all_with_prefix_aux care e recursiv pentru
+a afisa cuvintele cu prefixul repectiv
+mean_length - la fel ca find_all_with_prefix numai ca determina lungimea media
+DistTrie - functie ce elibereaza memoria alocata Trie-ului
